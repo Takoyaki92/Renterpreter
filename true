@@ -1,0 +1,5 @@
+      invoke  active_record
+      create    db/migrate/20210126104921_create_translators.rb
+      create    app/models/translator.rb
+      invoke    test_unit
+      create      test/models/translator_test.rb
