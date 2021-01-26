@@ -10,6 +10,7 @@ require 'faker'
 puts "preparing seeds"
 puts "creating users & translators"
 
+
 5.times do
 
   user = User.create!(
