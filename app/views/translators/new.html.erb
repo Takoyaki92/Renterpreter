@@ -1,2 +1,6 @@
-<h1>Translators#new</h1>
-<p>Find me in app/views/translators/new.html.erb</p>
+<%= simple_form_for @translator do |f| %>
+  <%= f.input :languages %>
+  <%= f.input :description %>
+  <%= f.input :rates %>
+  <%= f.submit %>
+<% end %>
