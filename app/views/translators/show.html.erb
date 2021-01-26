@@ -1,2 +1,12 @@
-<h1>Translators#show</h1>
-<p>Find me in app/views/translators/show.html.erb</p>
+<h1>Translators</h1>
+
+<h1><%= @translator.name %></h1>
+<table>
+  <tbody>
+  <tr>
+    <td><%= @translator.languages %></td>
+    <td><%= @translator.description %></td>
+    <td><%= @translator.rates %></td>
+  </tr>
+  </tbody>
+</table>
