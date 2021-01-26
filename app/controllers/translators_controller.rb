@@ -4,6 +4,7 @@ class TranslatorsController < ApplicationController
   end
 
   def show
+    @translator = Translator.find(params[:id])
   end
 
   def new
