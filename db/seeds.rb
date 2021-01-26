@@ -5,13 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-
 require 'faker'
 
 puts "preparing seeds"
 puts "creating users & translators"
+
+
 5.times do
+
   user = User.create!(
     email: Faker::Internet.email,
     password: "123456",
@@ -35,4 +36,4 @@ puts "creating plain users"
   )
 end
 
-puts "Seeding complete"
+puts "Seeding complete" 
