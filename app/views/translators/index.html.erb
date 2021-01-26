@@ -1,2 +1,18 @@
-<h1>Translators#index</h1>
-<p>Find me in app/views/translators/index.html.erb</p>
+<h1>Translators</h1>
+<% if @translators.empty? %>
+  <h2>There are no translators available at the present time</h2>
+<% else %>
+  <% @translators.each do |translator| %>
+    <h2>Name: <%= translator.user.name %></h2>
+    <h2>Languages: <%= translator.languages %></h2>
+     <h2>Description: <%= translator.description %></h2>
+    <h2>Availability: <% if translator.availability?%>
+    〇
+    <% else %>
+      X
+    <% end%>
+    </h2>
+    <h2>Rate: <%= translator.rates %></h2>
+   <hr> 
+  <% end %>
+<% end %>
