@@ -1,8 +1,15 @@
 <h1>Translators</h1>
 
-<h1><%= @translator.user.name %></h1>
+<div class="cards">
+    <div class="card-pick">
+        <h1><%= @translator.user.name %></h1>
 
-    <p><%= @translator.languages %></p>
-    <p><%= @translator.description %></p>
-    <p><%= @translator.rates %></p>
+        <div class="card-pick-info">
+            <p><%= @translator.languages %></p>
+            <p><%= @translator.description %></p>
+            <p><%= @translator.rates %></p>
+        </div>
+    
+    </div>
+</div>
  
