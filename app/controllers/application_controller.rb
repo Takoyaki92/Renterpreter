@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
   # THESE TWO LINES ARE REALLY IMPORTANT!!!!!!!!!!!!!!!!!!!!!!!!!
   after_action :verify_authorized, except: [:profile, :index], unless: :skip_pundit?
   after_action :verify_policy_scoped, only: [:profile, :index], unless: :skip_pundit?
+
   private
 
   def skip_pundit?
