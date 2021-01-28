@@ -1,15 +1,18 @@
-<h1>Translators</h1>
+<h1 class="text-center">Translator</h1>
 
-<div class="cards">
-    <div class="card-pick">
-        <h1><%= @translator.user.name %></h1>
-
-        <div class="card-pick-info">
-            <p><%= @translator.languages %></p>
-            <p><%= @translator.description %></p>
-            <p><%= @translator.rates %></p>
+<div class="container text-center">
+    <div class="cards">
+        <div class="card-pick">
+        <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/background-of-green-and-healthy-grass-royalty-free-image-1586800097.jpg?crop=1xw:0.72655xh;center,top&resize=1200:*" class="img-fluid" alt="Responsive image">
+            <h4><%= @translator.user.name %></h4>
+                <p>Languages: <%= @translator.languages %></p>
+                <p>About: <%= @translator.description %></p>
+                <p>Rate: $<%= @translator.rates %></p>
         </div>
-    
     </div>
+
+    <%= link_to 'Home', translators_path %>
 </div>
+
+
  
