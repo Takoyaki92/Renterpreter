@@ -1,18 +1,22 @@
 class TranslatorsController < ApplicationController
   def index
-    @translators = Translator.all
+    @translators = policy_scope(Translator).order(created_at: :desc)
   end
 
   def show
     @translator = Translator.find(params[:id])
+    authorize @translator
   end
 
   def new
     @translator = Translator.new
+    authorize @translator
   end
 
   def create
     @translator = Translator.new(translator_params)
+    authorize @translator
+    @translator.user = current_user
     if @translator.save
       redirect_to @translator
     else
@@ -28,7 +32,7 @@ class TranslatorsController < ApplicationController
 
   private
 
-  def cocktail_params
+  def translator_params
     params.require(:translator).permit(:languages, :description, :rates, :availability, :user_id)
   end
 end
