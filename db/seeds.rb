@@ -36,4 +36,4 @@ puts "creating plain users"
   )
 end
 
-puts "Seeding complete" 
+puts "Seeding complete"
