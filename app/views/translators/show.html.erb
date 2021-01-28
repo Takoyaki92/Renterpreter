@@ -1,12 +1,8 @@
 <h1>Translators</h1>
 
-<h1><%= @translator.name %></h1>
-<table>
-  <tbody>
-  <tr>
-    <td><%= @translator.languages %></td>
-    <td><%= @translator.description %></td>
-    <td><%= @translator.rates %></td>
-  </tr>
-  </tbody>
-</table>
+<h1><%= @translator.user.name %></h1>
+
+    <p><%= @translator.languages %></p>
+    <p><%= @translator.description %></p>
+    <p><%= @translator.rates %></p>
+ 
