@@ -5,7 +5,6 @@
   <% @translators.each do |translator| %>
     <h2>Name: <%= translator.user.name %></h2>
     <h2>Languages: <%= translator.languages %></h2>
-     <h2>Description: <%= translator.description %></h2>
     <h2>Availability: <% if translator.availability?%>
     〇
     <% else %>
@@ -13,6 +12,7 @@
     <% end%>
     </h2>
     <h2>Rate: <%= translator.rates %></h2>
-   <hr>
+     <%= link_to 'Description', translator_path(translator) %>
+   <hr> 
   <% end %>
 <% end %>
