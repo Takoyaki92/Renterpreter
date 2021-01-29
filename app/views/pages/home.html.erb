@@ -1,2 +1,41 @@
-<h1>Pages#home</h1>
-<p>hi</p>
+<!-- header -->
+<div class="navbar navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+       <%= image_tag("https://res.cloudinary.com/djduvb702/image/upload/v1611908575/Renterpreter_temp-logo_z9dnyr.png", width: 40, height: 40) %>
+      Renterpreter
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span class="navbar-toggler-icon"></span>
+    </button>
+</div>
+
+<div class="container">
+<!-- content -->
+  <div class="main">
+    <h1>Renterpreter</h1>
+    <p>What do you need an interpreter for?</p>
+  </div>
+
+<!-- searchbar -->
+  <div class="future-searchbar">
+    <%= simple_form_for :search do |f| %>
+      <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+      <button name="button" type="submit" class="btn btn-primary">
+        <i class="fas fa-search"></i> Search
+      </button>
+    <% end %>
+  </div>
+</div>
+
+<!-- footer -->
+<div class="footer">
+  <div class="footer-links">
+    <a href="https://github.com/Takoyaki92/Renterpreter/tree/master/app/views"><i class="fab fa-github"></i></a>
+  </div>
+  <div class="footer-copyright">
+    This app was made by awesome people!
+  </div>
+</div>
