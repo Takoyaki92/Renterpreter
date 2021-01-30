@@ -2,14 +2,17 @@ class BookingsController < ApplicationController
   def new
     @translator = Translator.find(params[:translator_id])
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
     @translator = Translator.find(params[:translator_id])
     @booking = Booking.new(booking_params)
     @booking.translator = @translator
+    authorize @booking
+    @booking.user = current_user
     if @booking.save
-      redirect_to translator_path(@booking.translator)
+      redirect_to translator_path(@translator)
     else
       render :new
     end

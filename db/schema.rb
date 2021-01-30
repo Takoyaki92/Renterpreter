@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2021_01_26_111053) do
     t.datetime "date_time"
     t.bigint "user_id", null: false
     t.bigint "translator_id", null: false
-    t.string "status"
+    t.string "status", default: "Placeholder"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

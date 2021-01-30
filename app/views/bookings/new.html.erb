@@ -1,6 +1,5 @@
 <%= simple_form_for [ @translator, @booking ] do |f| %>
-  <%= f.input :date_time %>
-  <%= f.text :description %>
   <%= f.input :date_time, as: :date, html5:true %>
+  <%= f.text_field :description %>
   <%= f.submit %>
 <% end %>

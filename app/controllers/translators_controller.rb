@@ -1,6 +1,7 @@
 class TranslatorsController < ApplicationController
   def index
     @translators = policy_scope(Translator).order(created_at: :desc)
+    @translator = Translator.new
   end
 
   def show
