@@ -1,0 +1,44 @@
+body {
+  background-color: #F7F6F3;
+}
+
+//container
+.container {
+  padding: 10px;
+  height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+
+  // app name
+
+  .main {
+    width: 50%;
+    font-size: 20px;
+
+    h1 {
+      font-family: Arizonia;
+      font-size: 100px;
+    }
+  }
+
+  // searchbar
+
+  .future-searchbar {
+    position: relative;
+    width: 50%;
+
+    .btn {
+      position: absolute;
+      top: 8px;
+      bottom: 8px;
+      right: 8px;
+    }
+
+    .form-control {
+      height: 3.5rem;
+    }
+  }
+}
