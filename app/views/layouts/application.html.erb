@@ -16,6 +16,19 @@
 
   <body>
 
+    <!-- header -->
+    <div class="navbar navbar navbar-light bg-light">
+        <%= link_to root_path do %>
+           <%= image_tag("https://res.cloudinary.com/djduvb702/image/upload/v1611908575/Renterpreter_temp-logo_z9dnyr.png", width: 40, height: 40) %>
+        <% end %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
