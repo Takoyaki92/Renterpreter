@@ -5,6 +5,5 @@ class DashboardPolicy < ApplicationPolicy
       scope.all
       # this returns Booking.all
     end
-
   end
 end

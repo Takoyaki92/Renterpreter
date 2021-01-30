@@ -10,7 +10,10 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.translator = @translator
     authorize @booking
+
     @booking.user = current_user
+
+
     if @booking.save
       redirect_to translator_path(@translator)
     else

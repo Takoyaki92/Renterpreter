@@ -1,5 +1,13 @@
-<%= simple_form_for [ @translator, @booking ] do |f| %>
-  <%= f.input :date_time, as: :date, html5:true %>
-  <%= f.text_field :description %>
-  <%= f.submit %>
-<% end %>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <%= simple_form_for [ @translator, @booking ] do |f| %>
+        <%= f.text_field :description %>
+        <%= f.input :date_time, as: :date, html5:true %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
+

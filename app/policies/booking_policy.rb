@@ -6,6 +6,7 @@ class BookingPolicy < ApplicationPolicy
     end
   end
 
+
   def new?
     true
   end
