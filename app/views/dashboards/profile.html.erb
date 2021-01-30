@@ -1,5 +1,8 @@
 <ul>
   <% @bookings.each do |booking| %>
-  <li><%= booking.translator.name %></li>
+  <li><%= booking.translator.user.name %></li>
+  <li><%= booking.description %></li>
+  <li><%= booking.status %></li>
 <% end %>
 </ul>
+<h1>hi</h1>
