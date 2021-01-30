@@ -4,16 +4,14 @@ class TranslatorsController < ApplicationController
 
     @translator = Translator.new
 
-
-      @markers = @translators.geocoded.map do |translator|
+    @markers = @translators.geocoded.map do |translator|
       {
         lat: translator.latitude,
         lng: translator.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { translator: translator })
-        # image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
+      #  image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
       }
     end
-
   end
 
   def show
@@ -46,6 +44,6 @@ class TranslatorsController < ApplicationController
   private
 
   def translator_params
-    params.require(:translator).permit(:languages, :description, :rates, :availability, :user_id)
+    params.require(:translator).permit(:languages, :description, :rates, :availability, :location, :user_id)
   end
 end
