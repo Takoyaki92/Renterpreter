@@ -12,7 +12,11 @@
     <% end%>
     </h2>
     <h2>Rate: <%= translator.rates %></h2>
+
+
      <%= link_to 'Description', translator_path(translator) %>
-   <hr>
+
   <% end %>
 <% end %>
+
+<a class="navbar-right" href="<%= new_translator_path %>"><button type="button" id="button" class="btn btn-success">Add your translator profile</button></a>
