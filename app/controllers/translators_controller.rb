@@ -1,7 +1,19 @@
 class TranslatorsController < ApplicationController
   def index
     @translators = policy_scope(Translator).order(created_at: :desc)
+
     @translator = Translator.new
+
+
+      @markers = @translators.geocoded.map do |translator|
+      {
+        lat: translator.latitude,
+        lng: translator.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { translator: translator })
+        # image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
+      }
+    end
+
   end
 
   def show
