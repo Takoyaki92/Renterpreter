@@ -1,15 +1,17 @@
 .cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 48px;
+  justify-content: center;
+  // display: grid;
+  // grid-template-columns: 1fr 1fr 1fr;
+  // grid-gap: 48px;
 }
 
 .card-pick {
   /*fixed*/
   display: flex;
   flex-direction: column;
+  padding: 10px;
   /*customizable*/
-  height: 300px;
+  // height: 300px;
   border-radius: 4px;
   background-color: white;
   box-shadow: 0 0px 16px rgba(0,0,0,0.3);
@@ -25,6 +27,7 @@
   /*customizable*/
   object-position: 50% 50%;
   border-radius: 4px 4px 0 0;
+  margin-bottom: 10px;
 }
 
 .card-pick-info {

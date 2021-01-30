@@ -1,13 +1,18 @@
-
 <div class="container">
+  <h1>Book <%= @translator.user.name %></h1>
   <div class="row justify-content-center">
-    <div class="col-6">
-      <%= simple_form_for [ @translator, @booking ] do |f| %>
-        <%= f.text_field :description %>
-        <%= f.input :date_time, as: :date, html5:true %>
-        <%= f.submit %>
-      <% end %>
-    </div>
+    <%= simple_form_for [ @translator, @booking ], url: profile_path, method: :get do |f| %>
+      <%= f.label :description %> <br>
+      <%= f.text_area :description %>
+      <%= f.input :date_time, as: :date, html5:true %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+  <div class="nav-list">
+    <ul>
+      <li><%= link_to "Cancel", translator_path(@translator) %></li>
+      <li><%= link_to "Back to index", translators_index_path %></li>
+    </ul>
   </div>
 </div>
 

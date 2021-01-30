@@ -1,0 +1,17 @@
+// searchbar
+
+.future-searchbar {
+  position: relative;
+  width: 50%;
+
+  .btn {
+    position: absolute;
+    top: 8px;
+    bottom: 8px;
+    right: 8px;
+  }
+
+  .form-control {
+    height: 3.5rem;
+  }
+}
