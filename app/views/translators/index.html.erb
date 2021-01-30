@@ -20,3 +20,8 @@
 <% end %>
 
 <a class="navbar-right" href="<%= new_translator_path %>"><button type="button" id="button" class="btn btn-success">Add your translator profile</button></a>
+
+<div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
