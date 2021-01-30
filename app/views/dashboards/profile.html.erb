@@ -1,8 +1,38 @@
-<ul>
-  <% @bookings.each do |booking| %>
-  <li><%= booking.translator.user.name %></li>
-  <li><%= booking.description %></li>
-  <li><%= booking.status %></li>
+<h1>Bookings you have received</h1>
+
+<% if @bookings.exists? %>
+  <ul>
+    <% @bookings.each do |booking| %>
+      <% if current_user == booking.translator.user %>
+        <li><%= booking.user.name %></li>
+        <li><%= booking.description %></li>
+        <li><%= booking.status %></li>
+      <% end %>
+    <% end %>
+    <hr>
+  </ul>
+<% else %>
+  <h1>Sorry no bookings</h1>
 <% end %>
-</ul>
-<h1>hi</h1>
+
+
+<br>
+<br>
+<br>
+
+<h1>Bookings you made</h1>
+
+<% if @bookings.exists? %>
+  <ul>
+    <% @bookings.each do |booking| %>
+      <% if current_user == booking.user %>
+        <li><%= booking.translator.user.name %></li>
+        <li><%= booking.description %></li>
+        <li><%= booking.status %></li>
+      <% end %>
+    <% end %>
+    <hr>
+  </ul>
+<% else %>
+  <h1>Sorry no bookings</h1>
+<% end %>
