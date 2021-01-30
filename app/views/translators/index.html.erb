@@ -1,6 +1,6 @@
 
-<div class="container">
   <h1>Translators</h1>
+<div class="container-index">
 
   <div class="cards-index">
 
@@ -9,9 +9,8 @@
       <% else %>
         <% @translators.each do |translator| %>
         <div class="card-pick">
+
             <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/background-of-green-and-healthy-grass-royalty-free-image-1586800097.jpg?crop=1xw:0.72655xh;center,top&resize=1200:*" class="img-fluid" alt="Responsive image">
-            <% if translator.user == current_user %>
-            <% else %>
             <h5>Name: <%= translator.user.name %></h5>
             <p>Languages: <%= translator.languages %></p>
             <p>Availability: <% if translator.availability?%>
@@ -23,15 +22,15 @@
             <p>Rate: <%= translator.rates %></p>
 
 
-            <%= link_to 'Description', translator_path(translator) %> 
+            <%= link_to 'Description', translator_path(translator) %>
 
-            <% end %>
-        </div> 
+        </div>
 
         <% end %>
-      <% end %>     
+      <% end %>
   </div>
 
+</div>
     <a class="navbar-right" href="<%= new_translator_path %>"><button type="button" id="button" class="btn btn-success">Add your translator profile</button></a>
     <br>
     <%= button_to "logout", destroy_user_session_path, method: :delete  %>
@@ -40,6 +39,5 @@
       style="width: 100%; height: 600px;"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-</div>
 
 
