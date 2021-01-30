@@ -25,7 +25,11 @@ require("channels")
 // External imports
 import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
-import { loadDynamicBannerText } from '../components/banner';
+
+// WHAT IS THIS (line 31)
+// Maybe it needs to be components/searchbar.js
+
+// import { loadDynamicBannerText } from '../components/banner';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
