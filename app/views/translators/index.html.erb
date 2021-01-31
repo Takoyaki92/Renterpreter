@@ -1,43 +1,31 @@
-
-  <h1>Translators</h1>
 <div class="container-index">
-
+  <h1>Translators</h1>
   <div class="cards-index">
-
-      <% if @translators.empty? %>
-        <h2>There are no translators available at the present time</h2>
-      <% else %>
-        <% @translators.each do |translator| %>
+    <% if @translators.empty? %>
+      <h2>There are no translators available at the present time</h2>
+    <% else %>
+      <% @translators.each do |translator| %>
         <div class="card-pick">
-
-            <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/background-of-green-and-healthy-grass-royalty-free-image-1586800097.jpg?crop=1xw:0.72655xh;center,top&resize=1200:*" class="img-fluid" alt="Responsive image">
-            <h5>Name: <%= translator.user.name %></h5>
-            <p>Languages: <%= translator.languages %></p>
-            <p>Availability: <% if translator.availability?%>
-            〇
+          <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/background-of-green-and-healthy-grass-royalty-free-image-1586800097.jpg?crop=1xw:0.72655xh;center,top&resize=1200:*" class="img-fluid" alt="Responsive image">
+          <h5>Name: <%= translator.user.name %></h5>
+          <p>Languages: <%= translator.languages %></p>
+          <p>Availability: <% if translator.availability?%>
+              〇
             <% else %>
               X
             <% end%>
-            </p>
-            <p>Rate: <%= translator.rates %></p>
-
-
-            <%= link_to 'Description', translator_path(translator) %>
-
+          </p>
+          <p>Rate: <%= translator.rates %></p>
+          <%= link_to 'Description', translator_path(translator) %>
         </div>
-
-        <% end %>
       <% end %>
+    <% end %>
   </div>
-
-</div>
-    <a class="navbar-right" href="<%= new_translator_path %>"><button type="button" id="button" class="btn btn-success">Add your translator profile</button></a>
-    <br>
-    <%= button_to "logout", destroy_user_session_path, method: :delete  %>
-
+  <a class="navbar-right" href="<%= new_translator_path %>"><button type="button" id="button" class="btn btn-success">Add your translator profile</button></a>
+  <br>
+  <%= button_to "Logout", destroy_user_session_path, method: :delete  %>
   <div id="map"
-      style="width: 100%; height: 600px;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
-
+    style="width: 100%; height: 600px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+</div>
