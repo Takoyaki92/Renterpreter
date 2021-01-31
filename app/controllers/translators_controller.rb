@@ -1,6 +1,6 @@
 class TranslatorsController < ApplicationController
   def index
-    @translators = policy_scope(Translator).where.not(user: current_user).order(created_at: :desc)
+    @translators = policy_scope(Translator).where(user: current_user).order(created_at: :desc)
 
     @translator = Translator.new
 
@@ -9,7 +9,7 @@ class TranslatorsController < ApplicationController
         lat: translator.latitude,
         lng: translator.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { translator: translator })
-      #  image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
+        #  image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
       }
     end
   end
@@ -44,6 +44,6 @@ class TranslatorsController < ApplicationController
   private
 
   def translator_params
-    params.require(:translator).permit(:languages, :description, :rates, :availability, :location, :user_id)
+    params.require(:translator).permit(:languages, :description, :rates, :availability, :photo, :location, :user_id)
   end
 end
