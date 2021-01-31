@@ -10,7 +10,13 @@
       <p>Languages: <%= @translator.languages %></p>
       <p>About: <%= @translator.description %></p>
       <p>Rate: $<%= @translator.rates %></p>
-      <%= link_to "Book them", new_translator_booking_path(@translator), class: "btn btn-flat" %>
+
+      <% if current_user == @translator.user %>
+        <%= link_to "Edit", edit_translator_path(@translator), class: "btn btn-flat" %>
+      <% else %>
+        <%= link_to "Book them", new_translator_booking_path(@translator), class: "btn btn-flat" %>
+      <% end %>
+
     </div>
   </div>
   <%= link_to 'Home', translators_path %>

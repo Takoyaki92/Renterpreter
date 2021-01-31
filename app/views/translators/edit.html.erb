@@ -1,2 +1,14 @@
-<h1>Translators#edit</h1>
-<p>Find me in app/views/translators/edit.html.erb</p>
+<div class="container">
+  <h1>Become a Renterpreter</h1>
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <%= simple_form_for @translator do |f| %>
+        <%= f.input :languages %>
+        <%= f.input :description %>
+        <%= f.input :rates %>
+        <%= f.input :photo, as: :file %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
