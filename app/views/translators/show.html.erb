@@ -1,17 +1,13 @@
 <div class="container text-center">
-    <div class="row justify-content-center cards">
-        <div class="col-3 card-pick">
-        <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/background-of-green-and-healthy-grass-royalty-free-image-1586800097.jpg?crop=1xw:0.72655xh;center,top&resize=1200:*" class="img-fluid" alt="Responsive image">
-            <h4><%= @translator.user.name %></h4>
-                <p>Languages: <%= @translator.languages %></p>
-                <p>About: <%= @translator.description %></p>
-                <p>Rate: $<%= @translator.rates %></p>
-                <%= link_to "Book them", new_translator_booking_path(@translator), class: "btn btn-flat" %>
-        </div>
+  <div class="row justify-content-center cards">
+    <div class="col-3 card-pick">
+      <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/background-of-green-and-healthy-grass-royalty-free-image-1586800097.jpg?crop=1xw:0.72655xh;center,top&resize=1200:*" class="img-fluid" alt="Responsive image">
+      <h4><%= @translator.user.name %></h4>
+      <p>Languages: <%= @translator.languages %></p>
+      <p>About: <%= @translator.description %></p>
+      <p>Rate: $<%= @translator.rates %></p>
+      <%= link_to "Book them", new_translator_booking_path(@translator), class: "btn btn-flat" %>
     </div>
-
-    <%= link_to 'Home', translators_path %>
+  </div>
+  <%= link_to 'Home', translators_path %>
 </div>
-
-
-
