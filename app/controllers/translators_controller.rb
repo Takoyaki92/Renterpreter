@@ -1,6 +1,6 @@
 class TranslatorsController < ApplicationController
   def index
-    @translators = policy_scope(Translator).where.not(user: current_user).order(created_at: :desc)
+    @translators = policy_scope(Translator).where(user: current_user).order(created_at: :desc)
 
     @translator = Translator.new
 
@@ -36,6 +36,19 @@ class TranslatorsController < ApplicationController
   end
 
   def edit
+    @translator = Translator.find(params[:id])
+    authorize @translator
+  end
+
+  def update
+    @translator = Translator.find(params[:id])
+    authorize @translator
+    @translator.user = current_user
+    if @translator.update(translator_params)
+      redirect_to @translator
+    else
+      render :new
+    end
   end
 
   def destroy
