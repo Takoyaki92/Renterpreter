@@ -2,7 +2,9 @@
   <div class="row justify-content-center cards">
 
     <div class="col-12 card-pick">
-      <%= cl_image_tag @translator.photo.key, crop: :fill %>
+      <% if @translator.photo.attached? %>
+        <%= cl_image_tag @translator.photo.key, crop: :fill %>
+        <% end %>
 
       <h4><%= @translator.user.name %></h4>
       <p>Languages: <%= @translator.languages %></p>
