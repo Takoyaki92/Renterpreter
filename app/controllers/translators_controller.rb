@@ -40,7 +40,7 @@ class TranslatorsController < ApplicationController
   end
 
   def edit
-    @translator = Translator.find(params[:id])
+    @translator = Translator.find(current_user.translator.id)
     authorize @translator
   end
 
