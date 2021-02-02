@@ -5,6 +5,7 @@
       <h2>There are no translators that match your conditions!</h2>
     <% else %>
       <% @translators.each do |translator| %>
+        <%= link_to(translator_path(translator), class: "card-link")  do %>        
         <div class="card-pick">
           <% if translator.photo.attached? %>
             <%= cl_image_tag translator.photo.key, crop: :fill, class: "img" %>
@@ -20,16 +21,11 @@
             <% end%>
           </p>
           <p>Rate: <%= translator.rates %></p>
-          <%= link_to 'Description', translator_path(translator) %>
         </div>
+      <% end %>
       <% end %>
     <% end %>
   </div>
-  <% if current_user.translator.present? %>
-    <%= link_to "Edit", edit_translator_path(current_user.translator.id), class: "btn btn-flat" %>
-  <% else %>
-    <a class="navbar-right" href="<%= new_translator_path %>"><button type="button" id="button" class="btn btn-success">Add your translator profile</button></a>
-  <% end %>
   <br>
   <%= button_to "logout", destroy_user_session_path, method: :delete  %>
   <div id="map"
