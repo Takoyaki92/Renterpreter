@@ -6,8 +6,9 @@ class User < ApplicationRecord
     :recoverable, :rememberable, :validatable
 
   has_many :bookings, dependent: :destroy
-  # UNCOMMENT THIS LATER
-  # has_one :translator, through: :bookings
+
+  has_one :translator
+
 
   has_one_attached :photo
 end

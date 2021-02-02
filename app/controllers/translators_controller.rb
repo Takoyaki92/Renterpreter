@@ -1,10 +1,12 @@
 class TranslatorsController < ApplicationController
   def index
+
     if params[:query].present?
       @translators = policy_scope(Translator).search_by_languages_and_description(params[:query]).where.not(user: current_user).order(created_at: :desc)
     else
       @translators = policy_scope(Translator).where.not(user: current_user).order(created_at: :desc)
     end
+    
     @translator = Translator.new
     @markers = @translators.geocoded.map do |translator|
       {
@@ -38,7 +40,7 @@ class TranslatorsController < ApplicationController
   end
 
   def edit
-    @translator = Translator.find(params[:id])
+    @translator = Translator.find(current_user.translator.id)
     authorize @translator
   end
 
