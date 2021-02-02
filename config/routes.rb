@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   resources :bookings, only: [:edit, :destroy]
 
   get '/profile', to: 'dashboards#profile'
+  get '/profile/:id/accept', to: 'dashboards#accept'
+  get '/profile/:id/decline', to: 'dashboards#decline'
 end
