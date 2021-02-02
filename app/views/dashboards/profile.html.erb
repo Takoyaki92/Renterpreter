@@ -4,9 +4,15 @@
   <ul>
     <% @bookings.each do |booking| %>
       <% if current_user == booking.translator.user %>
-        <li><%= booking.user.name %></li>
-        <li><%= booking.description %></li>
-        <li><%= booking.status %></li>
+        <li>Requester name: <%= booking.user.name %></li>
+        <li>Description: <%= booking.description %></li>
+        <li>Status: <%= booking.status %></li>
+
+        <div class="btn-group">
+          <%= link_to "Accept", {controller: "dashboards", action: "accept", id: booking.id}, class: "btn btn-success" %></button>
+          <%= link_to "Decline", {controller: "dashboards", action: "decline", id: booking.id}, class: "btn btn-danger" %></button>
+        </div>
+
       <% end %>
     <% end %>
     <hr>
@@ -14,6 +20,9 @@
 <% else %>
   <h1>Sorry no bookings</h1>
 <% end %>
+
+<!-- Status should be changed to "rejected"
+this logic probably belongs in the controller -->
 
 
 <br>
@@ -26,9 +35,10 @@
   <ul>
     <% @bookings.each do |booking| %>
       <% if current_user == booking.user %>
-        <li><%= booking.translator.user.name %></li>
-        <li><%= booking.description %></li>
-        <li><%= booking.status %></li>
+<!--       currently this displays the user's name, not the translators' name.
+ -->        <li>Translator name: <%= booking.translator.user.name %></li>
+        <li>Description: <%= booking.description %></li>
+        <li>Status: <%= booking.status %></li>
       <% end %>
     <% end %>
     <hr>
