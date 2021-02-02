@@ -1,46 +1,48 @@
-<h1>Bookings you have received</h1>
-
-<% if @bookings.exists? %>
-  <ul>
-    <% @bookings.each do |booking| %>
-      <% if current_user == booking.translator.user %>
-        <li>Requester name: <%= booking.user.name %></li>
-        <li>Description: <%= booking.description %></li>
-        <li>Status: <%= booking.status %></li>
-
-        <div class="btn-group">
-          <%= link_to "Accept", {controller: "dashboards", action: "accept", id: booking.id}, class: "btn btn-success" %></button>
-          <%= link_to "Decline", {controller: "dashboards", action: "decline", id: booking.id}, class: "btn btn-danger" %></button>
-        </div>
-
+<div class="container">
+  <h1>Bookings you made</h1>
+  <div class="cards">
+    <% if @bookings.exists? %>
+      <% @bookings.each do |booking| %>
+        <% if current_user == booking.user %>
+          <div class="card-pick">
+            <div class="bookings-list">
+              <p><%= image_tag "https://res.cloudinary.com/dgxnxohzx/image/upload/v1612061042/interpretation-bot_stl5v4.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %> (Date here)</p>
+              <p class="description">Description: <%= booking.description %></p>
+              <p>Status: <%= booking.status %></p>
+            </div>
+            <div class="btn-group">
+              <%= link_to "Accept", {controller: "dashboards", action: "accept", id: booking.id}, class: "btn btn-success" %></button>
+              <%= link_to "Decline", {controller: "dashboards", action: "decline", id: booking.id}, class: "btn btn-danger" %></button>
+            </div>
+          </div>
+        <% end %>
       <% end %>
+    <% else %>
+      <h1>Sorry no bookings</h1>
     <% end %>
-    <hr>
-  </ul>
-<% else %>
-  <h1>Sorry no bookings</h1>
-<% end %>
-
-<br>
-<br>
-<br>
-
-<h1>Bookings you made</h1>
-
-<% if @bookings.exists? %>
-  <ul>
-    <% @bookings.each do |booking| %>
-      <% if current_user == booking.user %>
-<!--       currently this displays the user's name, not the translators' name.
- -->        <li>Translator name: <%= booking.translator.user.name %></li>
-        <li>Description: <%= booking.description %></li>
-        <li>Status: <%= booking.status %></li>
+  </div>
+</div>
+<hr>
+<hr>
+<hr>
+<div class="container">
+  <h1>Bookings you have received</h1>
+  <div class="cards">
+    <% if @bookings.exists? %>
+      <% @bookings.each do |booking| %>
+        <% if current_user == booking.translator.user %>
+          <div class="card-pick">
+            <ul class="bookings-list">
+              <li>User: <%= booking.user.name %></li>
+              <li>Description: <%= booking.description %></li>
+              <li>Status: <%= booking.status %></li>
+            </ul>
+          </div>
+        <% end %>
       <% end %>
+    <% else %>
+      <h1>Sorry no bookings</h1>
     <% end %>
-    <hr>
-  </ul>
-<% else %>
-  <h1>Sorry no bookings</h1>
-<% end %>
-
+  </div>
+</div>
 <%= link_to 'Translators', translators_path %>
