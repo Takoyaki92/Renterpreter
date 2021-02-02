@@ -1,5 +1,6 @@
 class Translator < ApplicationRecord
   belongs_to :user
+  validates :user, uniqueness: true
   validates :languages, presence: true
   validates :description, presence: true
   validates :rates, presence: true
