@@ -1,9 +1,11 @@
 class TranslatorsController < ApplicationController
   def index
-    @translators = policy_scope(Translator).where(user: current_user).order(created_at: :desc)
-
+    if params[:query].present?
+      @translators = policy_scope(Translator).search_by_languages_and_description(params[:query]).where.not(user: current_user).order(created_at: :desc)
+    else
+      @translators = policy_scope(Translator).where.not(user: current_user).order(created_at: :desc)
+    end
     @translator = Translator.new
-
     @markers = @translators.geocoded.map do |translator|
       {
         lat: translator.latitude,
