@@ -6,7 +6,9 @@ class User < ApplicationRecord
     :recoverable, :rememberable, :validatable
 
   has_many :bookings, dependent: :destroy
+
   has_one :translator
+
 
   has_one_attached :photo
 end
