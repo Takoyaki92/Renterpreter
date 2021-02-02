@@ -2,7 +2,7 @@
   <h1>Translators</h1>
   <div class="cards-index">
     <% if @translators.empty? %>
-      <h2>There are no translators available at the present time</h2>
+      <h2>There are no translators that match your conditions!</h2>
     <% else %>
       <% @translators.each do |translator| %>
         <div class="card-pick">
@@ -31,6 +31,8 @@
   <br>
 
   <%= button_to "logout", destroy_user_session_path, method: :delete  %>
+
+
   <div id="map"
       style="width: 100%; height: 600px;"
       data-markers="<%= @markers.to_json %>"
