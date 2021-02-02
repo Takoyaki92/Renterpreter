@@ -26,7 +26,7 @@
     <% end %>
   </div>
   <% if current_user.translator.present? %>
-    <h2>You already have a translator profile</h2>
+    <%= link_to "Edit", edit_translator_path(current_user.translator.id), class: "btn btn-flat" %>
   <% else %>
     <a class="navbar-right" href="<%= new_translator_path %>"><button type="button" id="button" class="btn btn-success">Add your translator profile</button></a>
   <% end %>
