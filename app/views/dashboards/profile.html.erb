@@ -1,45 +1,44 @@
 <div class="container">
-  <h1>Bookings you have received</h1>
-  
-  <div class="cards">
-      <% if @bookings.exists? %>
-          <% @bookings.each do |booking| %>
-            <% if current_user == booking.translator.user %>
-            <div class="card-pick">
-                <ul>
-                  <li><%= booking.user.name %></li>
-                  <li><%= booking.description %></li>
-                  <li><%= booking.status %></li>
-                </ul>
-            </div>
-            <% end %>
-          <% end %>
-      <% else %>
-        <h1>Sorry no bookings</h1>
-      <% end %>     
-  </div>
-</div>
-
-<div class="container">
   <h1>Bookings you made</h1>
   <div class="cards">
-      <% if @bookings.exists? %>
-            <% @bookings.each do |booking| %>
-                <% if current_user == booking.user %>
-                  <div class="card-pick">
-                    <ul>
-                      <li><%= booking.translator.user.name %></li>
-                      <li><%= booking.description %></li>
-                      <li><%= booking.status %></li>
-                    </ul>
-                  </div>
-                    <% end %>
-                  <% end %>                
-              <% else %>
-                <h1>Sorry no bookings</h1>
-              <% end %>   
-       
+    <% if @bookings.exists? %>
+      <% @bookings.each do |booking| %>
+        <% if current_user == booking.user %>
+          <div class="card-pick">
+            <div class="bookings-list">
+              <p><%= image_tag "https://res.cloudinary.com/dgxnxohzx/image/upload/v1612061042/interpretation-bot_stl5v4.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %> (Date here)</p>
+              <p class="description">Description: <%= booking.description %></p>
+              <p>Status: <%= booking.status %></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% else %>
+      <h1>Sorry no bookings</h1>
+    <% end %>
   </div>
-
+</div>
+<hr>
+<hr>
+<hr>
+<div class="container">
+  <h1>Bookings you have received</h1>
+  <div class="cards">
+    <% if @bookings.exists? %>
+      <% @bookings.each do |booking| %>
+        <% if current_user == booking.translator.user %>
+          <div class="card-pick">
+            <ul class="bookings-list">
+              <li>User: <%= booking.user.name %></li>
+              <li>Description: <%= booking.description %></li>
+              <li>Status: <%= booking.status %></li>
+            </ul>
+          </div>
+        <% end %>
+      <% end %>
+    <% else %>
+      <h1>Sorry no bookings</h1>
+    <% end %>
+  </div>
 </div>
 <%= link_to 'Translators', translators_path %>

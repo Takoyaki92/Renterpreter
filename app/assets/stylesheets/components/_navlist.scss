@@ -14,3 +14,34 @@
 .nav-list li:not(:last-child) {
   border-right: 1px solid rgba(0,0,0,0.3);
 }
+
+// bookings-list
+// .bookings-list {
+//   list-style-type: none;
+//   margin-top: 10px;
+//   padding: 0;
+//   min-height: 50px;
+
+//   li {
+//     display: inline;
+//     padding-right: 10px;
+//     padding-left: 10px;
+//   }
+
+//   li:not(:last-child) {
+//     border-right: 1px solid rgba(0,0,0,0.3);
+//   }
+// }
+
+.bookings-list {
+  display: flex;
+  flex-direction: row;
+
+  p {
+    padding: 8px;
+  }
+
+  .description {
+    flex-grow: 1;
+  }
+}
