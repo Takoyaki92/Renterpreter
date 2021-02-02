@@ -1,40 +1,45 @@
-<h1>Bookings you have received</h1>
+<div class="container">
+  <h1>Bookings you have received</h1>
+  
+  <div class="cards">
+      <% if @bookings.exists? %>
+          <% @bookings.each do |booking| %>
+            <% if current_user == booking.translator.user %>
+            <div class="card-pick">
+                <ul>
+                  <li><%= booking.user.name %></li>
+                  <li><%= booking.description %></li>
+                  <li><%= booking.status %></li>
+                </ul>
+            </div>
+            <% end %>
+          <% end %>
+      <% else %>
+        <h1>Sorry no bookings</h1>
+      <% end %>     
+  </div>
+</div>
 
-<% if @bookings.exists? %>
-  <ul>
-    <% @bookings.each do |booking| %>
-      <% if current_user == booking.translator.user %>
-        <li><%= booking.user.name %></li>
-        <li><%= booking.description %></li>
-        <li><%= booking.status %></li>
-      <% end %>
-    <% end %>
-    <hr>
-  </ul>
-<% else %>
-  <h1>Sorry no bookings</h1>
-<% end %>
+<div class="container">
+  <h1>Bookings you made</h1>
+  <div class="cards">
+      <% if @bookings.exists? %>
+            <% @bookings.each do |booking| %>
+                <% if current_user == booking.user %>
+                  <div class="card-pick">
+                    <ul>
+                      <li><%= booking.translator.user.name %></li>
+                      <li><%= booking.description %></li>
+                      <li><%= booking.status %></li>
+                    </ul>
+                  </div>
+                    <% end %>
+                  <% end %>                
+              <% else %>
+                <h1>Sorry no bookings</h1>
+              <% end %>   
+       
+  </div>
 
-
-<br>
-<br>
-<br>
-
-<h1>Bookings you made</h1>
-
-<% if @bookings.exists? %>
-  <ul>
-    <% @bookings.each do |booking| %>
-      <% if current_user == booking.user %>
-        <li><%= booking.translator.user.name %></li>
-        <li><%= booking.description %></li>
-        <li><%= booking.status %></li>
-      <% end %>
-    <% end %>
-    <hr>
-  </ul>
-<% else %>
-  <h1>Sorry no bookings</h1>
-<% end %>
-
+</div>
 <%= link_to 'Translators', translators_path %>
