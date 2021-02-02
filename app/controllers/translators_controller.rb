@@ -1,6 +1,6 @@
 class TranslatorsController < ApplicationController
   def index
-    @translators = policy_scope(Translator).where(user: current_user).order(created_at: :desc)
+    @translators = policy_scope(Translator).where.not(user: current_user).order(created_at: :desc)
 
     @translator = Translator.new
 

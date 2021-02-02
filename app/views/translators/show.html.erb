@@ -3,7 +3,7 @@
 
     <div class="col-12 card-pick">
       <% if @translator.photo.attached? %>
-        <%= cl_image_tag @translator.photo.key, crop: :fill %>
+        <%= cl_image_tag @translator.photo.key, crop: :fill, class: "img" %>
         <% end %>
 
       <h4><%= @translator.user.name %></h4>
