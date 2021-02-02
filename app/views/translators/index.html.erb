@@ -7,7 +7,7 @@
       <% @translators.each do |translator| %>
         <div class="card-pick">
           <% if translator.photo.attached? %>
-            <%= cl_image_tag translator.photo.key, crop: :fill %>
+            <%= cl_image_tag translator.photo.key, crop: :fill, class: "img" %>
           <% else %>
             <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/background-of-green-and-healthy-grass-royalty-free-image-1586800097.jpg?crop=1xw:0.72655xh;center,top&resize=1200:*" class="img-fluid" alt="Responsive image">
           <% end %>
