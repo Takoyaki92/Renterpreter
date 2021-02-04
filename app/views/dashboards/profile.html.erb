@@ -6,7 +6,8 @@
         <% if current_user == booking.user %>
           <div class="card-pick">
             <div class="bookings-list">
-              <p><%= image_tag "https://res.cloudinary.com/dgxnxohzx/image/upload/v1612061042/interpretation-bot_stl5v4.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %> (Date here)</p>
+              <p><%= image_tag "https://res.cloudinary.com/dgxnxohzx/image/upload/v1612061042/interpretation-bot_stl5v4.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %> </p>
+              <p><%= booking.date_time %>
               <p class="description">Description: <%= booking.description %></p>
               <p>Status: <%= booking.status %></p>
             </div>
@@ -27,10 +28,12 @@
       <% @bookings.each do |booking| %>
         <% if current_user == booking.translator.user %>
           <div class="card-pick">
-            <ul class="bookings-list">
-              <li>User: <%= booking.user.name %></li>
-              <li>Description: <%= booking.description %></li>
-              <li>Status: <%= booking.status %></li>
+            <div class="bookings-list">
+              <p><%= image_tag "https://res.cloudinary.com/dgxnxohzx/image/upload/v1612061042/interpretation-bot_stl5v4.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %> (Date here)</p>
+              <p>User: <%= booking.user.name %></p>
+              <p class="description">Description: <%= booking.description %></p>
+              <p>Status: <%= booking.status %></p>
+            </div>
               <% if booking.status == "Pending" %>
                 <div class="btn-group">
                   <%= link_to "Accept", {controller: "dashboards", action: "accept", id: booking.id}, class: "btn btn-success" %>
