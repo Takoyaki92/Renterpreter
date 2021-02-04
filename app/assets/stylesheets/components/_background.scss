@@ -2,10 +2,21 @@ body {
   background-color: #F7F6F3;
 }
 
+.notice {
+  display: none;
+}
+
+.background-img {
+  background-image: url(image_path(pexels-armin-rimoldi-5554283));
+  background-size: cover;
+  background-color: rgba(255,255,255,0.3);
+  background-blend-mode: lighten;
+}
+
 //container
 .container {
   padding: 10px;
-  height: 75vh;
+  height: 85vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,7 +24,6 @@ body {
   text-align: center;
 
   // app name
-
   .main {
     width: 50%;
     font-size: 20px;
