@@ -1,31 +1,30 @@
-<div class="container">
-<!-- content -->
-  <div class="main">
-    <h1>Renterpreter</h1>
-    <p>What do you need an interpreter for?</p>
-  </div>
-
-<!-- searchbar -->
-<div class="future-searchbar">
-  <%= form_tag translators_path, method: :get do %>
-  <%= text_field_tag :query,
+<div class="background-img">
+  <%= render "shared/navbar" %>
+  <div class="container">
+    <!-- content -->
+    <div class="main">
+      <h1>Renterpreter</h1>
+      <p>What do you need an interpreter for?</p>
+    </div>
+    <!-- searchbar -->
+    <div class="future-searchbar">
+      <%= form_tag translators_path, method: :get do %>
+        <%= text_field_tag :query,
     params[:query],
     class: "form-control",
     placeholder: "Type something!"
     %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
-    <% end %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
+    </div>
   </div>
-</div>
-
-
-
-<!-- footer -->
-<div class="footer">
-  <div class="footer-links">
-    <a href="https://github.com/Takoyaki92/Renterpreter/tree/master/app/views"><i class="fab fa-github"></i></a>
-  </div>
-  <div class="footer-copyright">
-    This app was made by awesome people!
+  <!-- footer -->
+  <div class="footer">
+    <div class="footer-links">
+      <a href="https://github.com/Takoyaki92/Renterpreter/tree/master/app/views"><i class="fab fa-github"></i></a>
+    </div>
+    <div class="footer-copyright">
+      This app was made by awesome people!
+    </div>
   </div>
 </div>
