@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   has_many :bookings, dependent: :destroy
 
-  has_one :translator
+  has_one :translator, dependent: :destroy
 
 
   has_one_attached :photo
