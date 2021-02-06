@@ -1,5 +1,5 @@
 <body class="wallpaper">
-  <div class="container">
+  <div class="bookings-container">
     <h1>Bookings you made</h1>
     <div class="cards">
       <% if @bookings.exists? %>
@@ -7,8 +7,6 @@
           <% if current_user == booking.user %>
             <div class="card-pick">
               <div class="bookings-list">
-      
-
               <p>To: <%= booking.translator.user.name %></p>
               <p><% if booking.translator.user.photo.attached? %>
                       <%= cl_image_tag booking.translator.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -17,7 +15,6 @@
                   <% end %>
                 </p>
                 <p>For: <%= booking.date_time.strftime("%A, %b %d") %>
-
                 <p class="description">Description: <%= booking.description %></p>
                 <!--Changes color of text based on Status  -->
                 <% if booking.status == "Pending" %>
@@ -27,9 +24,7 @@
                 <% elsif booking.status == "Declined" %>
                   <p class="text-danger">Status: <%= booking.status %></p>
                 <% end %>
-
               </div>
-
             </div>
           <% end %>
         <% end %>
@@ -38,8 +33,7 @@
       <% end %>
     </div>
   </div>
-
-  <div class="container">
+  <div class="bookings-container">
     <h1>Bookings you have received</h1>
     <div class="cards">
       <% if @bookings.exists? %>
@@ -47,8 +41,6 @@
           <% if current_user == booking.translator.user %>
             <div class="card-pick">
               <div class="bookings-list">
-
-
                 <p><% if booking.user.photo.attached? %>
                       <%= cl_image_tag booking.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                   <% else %>
@@ -57,7 +49,6 @@
                 </p>
                 <p>For: <%= booking.date_time.strftime("%A, %b %d") %>
                 <p>From: <%= booking.user.name %></p>
-
                 <p class="description">Description: <%= booking.description %></p>
                 <!--Changes color of text based on Status  -->
                 <% if booking.status == "Pending" %>
@@ -80,7 +71,6 @@
               </ul>
             </div>
           <% end %>
-
         <% end %>
       <% else %>
         <h1>You don't have any bookings yet!</h1>
@@ -89,7 +79,3 @@
     <%= link_to 'Translators', translators_path, class: "btn btn-primary" %>
   </div>
 </body>
-
-
-
-
