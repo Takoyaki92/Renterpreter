@@ -1,25 +1,27 @@
+<body class="wallpaper">
 <br>
 <br>
 <br>
 
-<div class="container text-center">
-  <div class="row justify-content-center cards">
-    <div class="col-12 card-pick">
-      <% if @translator.user.photo.attached? %>
+  <div class="container text-center">
+    <div class="row justify-content-center cards">
+      <div class="col-12 card-pick">
+        <% if @translator.user.photo.attached? %>
 
-        <%= cl_image_tag @translator.user.photo.key, crop: :fill, class: "img" %>
+          <%= cl_image_tag @translator.user.photo.key, crop: :fill, class: "img" %>
+          <% end %>
+
+        <h4><%= @translator.user.name %></h4>
+        <p>Languages: <%= @translator.languages %></p>
+        <p>About: <%= @translator.description %></p>
+        <p>Rate: $<%= @translator.rates %></p>
+        <% if current_user == @translator.user %>
+          <%= link_to "Edit", edit_translator_path(@translator), class: "btn btn-flat" %>
+        <% else %>
+          <%= link_to "Book them", new_translator_booking_path(@translator), class: "btn btn-flat" %>
         <% end %>
-
-      <h4><%= @translator.user.name %></h4>
-      <p>Languages: <%= @translator.languages %></p>
-      <p>About: <%= @translator.description %></p>
-      <p>Rate: $<%= @translator.rates %></p>
-      <% if current_user == @translator.user %>
-        <%= link_to "Edit", edit_translator_path(@translator), class: "btn btn-flat" %>
-      <% else %>
-        <%= link_to "Book them", new_translator_booking_path(@translator), class: "btn btn-flat" %>
-      <% end %>
+      </div>
     </div>
+    <%= link_to 'Home', translators_path, class: "btn btn-primary" %>
   </div>
-  <%= link_to 'Home', translators_path, class: "btn btn-primary" %>
-</div>
+</body>
