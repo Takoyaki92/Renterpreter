@@ -1,35 +1,37 @@
-<div class="container-index">
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/background-of-green-and-healthy-grass-royalty-free-image-1586800097.jpg?crop=1xw:0.72655xh;center,top&resize=1200:*);">
-  <div class="banner-container">
-    <h1>Translator</h1>
-    <p>Find the Interpretor that is right for you</p>
+<body class="wallpaper">
+  <div class="container-index">
+    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/background-of-green-and-healthy-grass-royalty-free-image-1586800097.jpg?crop=1xw:0.72655xh;center,top&resize=1200:*);">
+    <div class="banner-container">
+      <h1>Translator</h1>
+      <p>Find the Interpretor that is right for you</p>
+    </div>
   </div>
-</div>
-  <div class="cards-index">
-    <% if @translators.empty? %>
-      <h2>There are no translators that match your conditions!</h2>
-    <% else %>
-      <% @translators.each do |translator| %>
-        <%= link_to(translator_path(translator), class: "card-link")  do %>
-          <div class="card-pick">
-            <% if translator.user.photo.attached? %>
-              <%= cl_image_tag translator.user.photo.key, crop: :fill, class: "img" %>
-            <% else %>
-              <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/background-of-green-and-healthy-grass-royalty-free-image-1586800097.jpg?crop=1xw:0.72655xh;center,top&resize=1200:*" class="img-fluid" alt="Responsive image">
-            <% end %>
-            <h5>Name: <%= translator.user.name %></h5>
-            <p>Languages: <%= translator.languages %></p>
-            <p>Location: <%= translator.location %></p>
-            <p>Rate: <%= translator.rates %></p>
-          </div>
+    <div class="cards-index">
+      <% if @translators.empty? %>
+        <h2>There are no translators that match your conditions!</h2>
+      <% else %>
+        <% @translators.each do |translator| %>
+          <%= link_to(translator_path(translator), class: "card-link")  do %>
+            <div class="card-pick">
+              <% if translator.user.photo.attached? %>
+                <%= cl_image_tag translator.user.photo.key, crop: :fill, class: "img" %>
+              <% else %>
+                <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/background-of-green-and-healthy-grass-royalty-free-image-1586800097.jpg?crop=1xw:0.72655xh;center,top&resize=1200:*" class="img-fluid" alt="Responsive image">
+              <% end %>
+              <h5>Name: <%= translator.user.name %></h5>
+              <p>Languages: <%= translator.languages %></p>
+              <p>Location: <%= translator.location %></p>
+              <p>Rate: <%= translator.rates %></p>
+            </div>
+          <% end %>
         <% end %>
       <% end %>
-    <% end %>
-  </div>
+    </div>
 
-  <%# <div id="map"
-      style="width: 100%; height: 600px;"
-      data-markers="<%= @markers.to_json %>
-      <%# data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>
-      <%# </div> %>
-</div>
+    <%# <div id="map"
+        style="width: 100%; height: 600px;"
+        data-markers="<%= @markers.to_json %>
+        <%# data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>
+        <%# </div> %>
+  </div>
+</body>
