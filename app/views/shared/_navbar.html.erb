@@ -3,6 +3,9 @@
     <%= image_tag("https://res.cloudinary.com/djduvb702/image/upload/v1611908575/Renterpreter_temp-logo_z9dnyr.png", width: 40, height: 40) %>
   <% end %>
   <div class="navbar-right">
+    <% if user_signed_in? %>
+      <p>Hello, <%= current_user.name %>!</p>
+    <% end %>
     <% if !user_signed_in? %>
       <%= link_to "Become a Translator", new_translator_path, class: "newTranslatorLink"  %>
     <% elsif user_signed_in? && current_user.translator == nil %>
@@ -21,7 +24,6 @@
     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
       <ul>
         <li><%= link_to "View Bookings", profile_path, class: "dropdown-item" %></li>
-        <li><%= link_to "Edit Translator Profile",  edit_translator_path(:translator_id), class: "dropdown-item" %></li>
         <li><hr class="dropdown-divider"></li>
         <li><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
       </ul>
