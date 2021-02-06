@@ -13,7 +13,7 @@
         <h4><%= @translator.user.name %></h4>
         <p>Languages: <%= @translator.languages %></p>
         <p>About: <%= @translator.description %></p>
-        <p>Rate: $<%= @translator.rates %></p>
+        <p>Rate: ¥<%= @translator.rates %> an hour</p>
         <% if current_user == @translator.user %>
           <%= link_to "Edit", edit_translator_path(@translator), class: "btn btn-flat" %>
         <% else %>
