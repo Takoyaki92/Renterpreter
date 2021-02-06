@@ -26,6 +26,44 @@ require("channels")
 import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 
+// Sweetalert
+import { initSweetalert } from '../plugins/init_sweetalert';
+
+initSweetalert('#sweet-alert-accept', {
+  title: "Done!",
+  text: "This booking has been finalized.",
+  icon: "success"
+}, (value) => {
+  if (value) {
+    const accept = document.querySelector('#accept');
+    accept.click();
+  }
+});
+
+initSweetalert('#sweet-alert-decline', {
+  title: "Done!",
+  text: "This booking has been declined.",
+  icon: "error"
+}, (value) => {
+  if (value) {
+    const link = document.querySelector("#decline");
+    link.click();
+  }
+});
+
+
+initSweetalert('#sweet-alert-demo', {
+  title: "Are you sure?",
+  text: "This action cannot be reversed",
+  icon: "warning"
+}, (value) => {
+  if (value) {
+    const link = document.querySelector('#delete-link');
+    link.click();
+  }
+});
+
+
 // WHAT IS THIS (line 31)
 // Maybe it needs to be components/searchbar.js
 
