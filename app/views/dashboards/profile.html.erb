@@ -6,8 +6,17 @@
         <% if current_user == booking.user %>
           <div class="card-pick">
             <div class="bookings-list">
-              <p><%= image_tag "https://res.cloudinary.com/dgxnxohzx/image/upload/v1612061042/interpretation-bot_stl5v4.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %> </p>
+    
+
+            <p>To: <%= booking.translator.user.name %></p>
+            <p><% if booking.translator.user.photo.attached? %>
+                    <%= cl_image_tag booking.translator.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                 <% else %>
+                    <%= image_tag "https://res.cloudinary.com/dgxnxohzx/image/upload/v1612061042/interpretation-bot_stl5v4.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                 <% end %>
+              </p>
               <p><%= booking.date_time.strftime("%A, %b %d") %>
+
               <p class="description">Description: <%= booking.description %></p>
               <!--Changes color of text based on Status  -->
               <% if booking.status == "Pending" %>
@@ -37,9 +46,17 @@
         <% if current_user == booking.translator.user %>
           <div class="card-pick">
             <div class="bookings-list">
-              <p><%= image_tag "https://res.cloudinary.com/dgxnxohzx/image/upload/v1612061042/interpretation-bot_stl5v4.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %></p>
+
+
+              <p><% if booking.user.photo.attached? %>
+                    <%= cl_image_tag booking.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                 <% else %>
+                    <%= image_tag "https://res.cloudinary.com/dgxnxohzx/image/upload/v1612061042/interpretation-bot_stl5v4.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                 <% end %>
+              </p>
               <p><%= booking.date_time.strftime("%A, %b %d") %>
-              <p>User: <%= booking.user.name %></p>
+              <p>From: <%= booking.user.name %></p>
+
               <p class="description">Description: <%= booking.description %></p>
               <!--Changes color of text based on Status  -->
               <% if booking.status == "Pending" %>
