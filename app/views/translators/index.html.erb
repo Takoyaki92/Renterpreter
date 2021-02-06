@@ -3,7 +3,7 @@
     <div class="banner">
       <div class="banner-container">
         <h1>Translators</h1>
-        <p>Find the Interpretor that is right for you</p>
+        <p>Find the Interpreter that is right for you</p>
       </div>
     </div>
 
@@ -21,8 +21,8 @@
               <% end %>
               <h5><%= translator.user.name %></h5>
               <div class="flex-container">
-                <p>Languages: <br> <%= translator.languages %></p>
-                <p>Rate: <br> ¥<%= translator.rates %></p>            
+                <p class="font-weight-bold"><%= translator.languages %></p>
+                <p><i class="fas fa-yen-sign"></i><%= translator.rates %>/hr</p>
               </div>
             </div>
           <% end %>

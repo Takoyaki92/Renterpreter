@@ -4,11 +4,10 @@
     <div class="row justify-content-center">
       <div class="col-12">
         <%= simple_form_for @translator do |f| %>
-          <%= f.input :languages %>
-          <%= f.input :description %>
-          <%= f.input :rates %>
-          <%= f.input :photo, as: :file %>
-          <%= f.submit %>
+          <%= f.input :languages, label:"What languages do you speak?" %>
+          <%= f.input :description, label:"Please describe your areas of expertise, experience, etc." %>
+          <%= f.input :rates, label:"How much do you charge per hour?" %>
+          <%= f.button :submit, label:"Create", class: "btn btn-primary" %>
         <% end %>
       </div>
     </div>
