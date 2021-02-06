@@ -1,4 +1,4 @@
-<div class="container">
+<div class="bookings-container">
   <h1>Bookings you made</h1>
   <div class="cards">
     <% if @bookings.exists? %>
@@ -7,7 +7,7 @@
           <div class="card-pick">
             <div class="bookings-list">
               <p><%= image_tag "https://res.cloudinary.com/dgxnxohzx/image/upload/v1612061042/interpretation-bot_stl5v4.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %> </p>
-              <p><%= booking.date_time %>
+              <p><%= booking.date_time %> </p>
               <p class="description">Description: <%= booking.description %></p>
               <!--Changes color of text based on Status  -->
               <% if booking.status == "Pending" %>
@@ -17,9 +17,7 @@
               <% elsif booking.status == "Declined" %>
                 <p class="text-danger">Status: <%= booking.status %></p>
               <% end %>
-
             </div>
-
           </div>
         <% end %>
       <% end %>
@@ -28,8 +26,7 @@
     <% end %>
   </div>
 </div>
-
-<div class="container">
+<div class="bookings-container">
   <h1>Bookings you have received</h1>
   <div class="cards">
     <% if @bookings.exists? %>
@@ -38,7 +35,7 @@
           <div class="card-pick">
             <div class="bookings-list">
               <p><%= image_tag "https://res.cloudinary.com/dgxnxohzx/image/upload/v1612061042/interpretation-bot_stl5v4.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %></p>
-              <p><%= booking.date_time %>
+              <p><%= booking.date_time %> </p>
               <p>User: <%= booking.user.name %></p>
               <p class="description">Description: <%= booking.description %></p>
               <!--Changes color of text based on Status  -->
@@ -51,27 +48,21 @@
               <% end %>
             </div>
             <!-- Accept/Decline buttons w/ Sweetalert  -->
-              <% if booking.status == "Pending" %>
-                <div class="btn-group">
-                  <button id="sweet-alert-accept" class="btn btn-success">Accept</button>
-                  <%= link_to "", "/profile/#{booking.id}/accept", method: "get", id: "accept", class: "hidden" %>
-                  <button id="sweet-alert-decline" class="btn btn-danger">Decline</button>
-                  <%= link_to "", "/profile/#{booking.id}/decline", method: "get", id: "decline", class: "hidden" %>
-                </div>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-
+            <% if booking.status == "Pending" %>
+              <div class="btn-group">
+                <button id="sweet-alert-accept" class="btn btn-success">Accept</button>
+                <%= link_to "", "/profile/#{booking.id}/accept", method: "get", id: "accept", class: "hidden" %>
+                <button id="sweet-alert-decline" class="btn btn-danger">Decline</button>
+                <%= link_to "", "/profile/#{booking.id}/decline", method: "get", id: "decline", class: "hidden" %>
+              </div>
+            <% end %>
+          </ul>
+        </div>
       <% end %>
-    <% else %>
-      <h1>You don't have any bookings yet!</h1>
     <% end %>
-  </div>
-  <%= link_to 'Translators', translators_path, class: "btn btn-primary" %>
+  <% else %>
+    <h1>You don't have any bookings yet!</h1>
+  <% end %>
 </div>
-
-
-
-
-
+<%= link_to 'Translators', translators_path, class: "btn btn-primary" %>
+</div>
