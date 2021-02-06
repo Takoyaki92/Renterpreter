@@ -32,7 +32,11 @@
           <h3>You haven't made any bookings! Check out some of our awesome <a href="/translators">translators</a>.</h3>
         <% end %>
       </div>
+      <%= link_to 'Translators', translators_path, class: "btn btn-primary" %>
     </div>
+
+
+
     <div class="bookings-container">
       <h1>Bookings you have received</h1>
       <div class="cards">
@@ -76,6 +80,6 @@
           <h3>You don't have any bookings yet!</h3>
         <% end %>
       </div>
-      <%= link_to 'Translators', translators_path, class: "btn btn-primary" %>
+
     </div>
   </body>

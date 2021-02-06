@@ -3,10 +3,9 @@
     <h1>Book <%= @translator.user.name %></h1>
     <div class="row justify-content-center">
       <%= simple_form_for [ @translator, @booking ] do |f| %>
-        <%= f.label :description %> <br>
-        <%= f.text_area :description %>
-        <%= f.input :date_time, as: :date, html5:true %>
-        <%= f.submit %>
+        <%= f.input :description, label:"Please describe what you need help with" %>
+        <%= f.input :date_time, as: :date, html5:true, label:"Pick a date" %>
+        <%= f.button :submit, label:"Book", class: "btn btn-primary" %>
       <% end %>
     </div>
     <div class="nav-list">
