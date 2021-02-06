@@ -1,13 +1,12 @@
 <body class="wallpaper">
   <div class="container-index">
-    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/background-of-green-and-healthy-grass-royalty-free-image-1586800097.jpg?crop=1xw:0.72655xh;center,top&resize=1200:*);">
-    <div class="banner-container">
-      <h1>Translator</h1>
-      <p>Find the Interpretor that is right for you</p>
+    <div class="banner">
+      <div class="banner-container">
+        <h1>Translator</h1>
+        <p>Find the Interpretor that is right for you</p>
+      </div>
     </div>
-  </div>
 
-  </div>
     <div class="cards-index">
       <% if @translators.empty? %>
         <h2>There are no translators that match your conditions!</h2>
@@ -30,6 +29,7 @@
         <% end %>
       <% end %>
     </div>
+
   </div>
 
 </body>

@@ -1,5 +1,6 @@
 .banner {
-  background-size: cover;
+  background-size: fit;
+  // background-repeat: no-repeat;
   width: 100%;
   height: auto;
   // max-height: 300px;
@@ -8,6 +9,11 @@
   position: fixed;
   z-index: 2;
   // padding: 150px 0;
+
+  // background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(image_path(pexels-thirdman-5649514));
+  // background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(image_path(pexels-nothing-ahead-4440715));
+  // background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(image_path(pexels-mentatdgt-1311518));
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(image_path(pexels-ann-h-4102579));
 }
 
 .banner-container h1 {
